@@ -5,16 +5,15 @@ def ask_user():
 # Get directory and filename from user input
     directory = input("Enter the directory to save the image: ")
     filename = input("Enter the filename (including extension, e.g., example.png): ")
-# Ensure the directory exists
     #if not os.path.exists(directory):
         #os.makedirs(directory)
 # Combine the directory path and filename
     file_path = os.path.join(directory, f"{filename}.txt")
-    try:
+    try: 
         image = from_image(filename)
         image.to_terminal(monochrome = True)
         image.to_file(path = file_path, monochrome = True)
-    except:
+    except Exception:
         print("An error has occured.")  
 
 def picture_conversion(): 
